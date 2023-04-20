@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Techwise Dude is a skill-training platform. In this site, I used JavaScript, Reactjs, React Hot Toast, the Context API, Firebase for authentication, and CSS. And I also use it for data showing this site. Mongodb CRUD .
 
 ## Available Scripts
 
