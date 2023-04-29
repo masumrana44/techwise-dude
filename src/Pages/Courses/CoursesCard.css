@@ -1,0 +1,78 @@
+.card {
+  width: 400px;
+  height: 450px;
+  /* border: 1px solid black; */
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: relative;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 5px;
+  background-color: #fe6c45;
+  transition: width 0.5s ease-in-out;
+}
+
+.card:hover::after {
+  width: 100%;
+}
+
+.card img {
+  margin-top: 3px;
+  width: 97%;
+  height: 70%;
+  border-radius: 8px;
+}
+
+.card-text-conent {
+  padding: 10px 20px;
+}
+
+.card-text-conent .title {
+  text-align: start;
+  transition: color 0.3s ease-in-out;
+}
+
+.card:hover .title {
+  color: #fe6c45;
+}
+
+.read-more {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 2% !important;
+  padding: 9px 40px;
+  margin: 0px auto;
+  border: none;
+  border-radius: 8px;
+  background-color: #2d323d;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
+.read-more:hover {
+  background-color: #fe6c45;
+
+  color: white;
+}
+
+.card .price {
+  text-align: start;
+  margin-top: 2%;
+}

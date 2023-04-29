@@ -1,0 +1,160 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.slider {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+}
+#slideImg {
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.navbar {
+  padding: 1% 6%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  /* z-index: 1; */
+}
+
+.logo h1 {
+  color: white;
+  margin-left: 4px;
+}
+
+.logo #logo-first {
+  color: #fe6c45;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+  /* z-index: 1; */
+}
+
+.navbar nav a {
+  font-size: 1.3rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  position: relative;
+  text-decoration: none;
+  color: white;
+  padding-bottom: 5px;
+  transition: color 0.2s ease-in-out;
+  pointer-events: all;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 4px;
+  background-color: #fe6c45;
+  transition: width 0.4s ease-in-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #fe6c45;
+}
+
+.content {
+  width: 50%;
+  margin: 13% auto;
+  text-align: start;
+  color: white;
+}
+
+.animation-title {
+  font-weight: 500;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+}
+.animation-text {
+  font-size: 2rem;
+}
+
+.home-courses-container {
+  width: 100%;
+  height: 600px;
+  background-color: #f7fafe;
+  text-align: center;
+  padding: 6% 0%;
+}
+.home-courses-container h1{
+  font-size: 4rem;
+}
+
+.home-courses-container p{
+  font-size: 1.5rem;
+  width: 50%;
+   margin:0 auto;
+}
+
+.divider {
+  width: 100px;
+  margin:20px auto;
+  border-bottom: 10px solid tomato;
+  display: flex;
+  justify-content: center;
+}
+
+.home-courses {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:5%;
+  margin-top: 3%;
+ 
+}
+
+ 
+.btn-view-courses{
+  margin-top: 3%;
+  font-size: 1.1rem;
+  padding:20px 50px;
+  border-radius: 20px;
+  border:none;
+  background-color: #fe6c45;
+  color:white;
+  font-weight: bold;
+   
+}
+
+.btn-view-courses:hover{
+  background-color: #2d323d;
+  color:white;
+}

@@ -1,0 +1,11 @@
+.courses-container{
+    text-align: center;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap:5%;
+}
+
+
+
