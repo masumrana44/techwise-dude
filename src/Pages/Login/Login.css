@@ -1,19 +1,159 @@
-.login-container {
-  margin-top: 5%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.login-from-animation{
+    /* border: 1px solid black; */
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   
 }
 
-.login-form-container {
-  width: 500px;
-  height: 500px;
-  border: 1px solid black;
+.text-center {
   text-align: center;
 }
 
-.login-form-container input {
-  display: block;
-  width: 70%;
-  
+.mt-5 {
+  margin-top: 25px;
+}
+
+.link-color {
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5%;
+  /* gap:5%; */
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+input {
+  padding: 8px;
+  font-size: 25px;
+  width: 100%;
+  background-color: var(--light);
+}
+
+.login-form {
+  width: 500px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 50px 50px 25px 50px;
+  box-sizing:border-box;
+   
+}
+
+.btn-sigin {
+  background-color: #103160;
+  padding: 13px;
+  font-size: 20px;
+  color: white;
+  width: 50%;
+  border: none;
+  border-radius: 5px;
+  margin: 0 auto;
+   display: block;
+}
+
+.btn-sigin:hover {
+  background-color: #fe6c45;
+}
+
+.hr-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.login-hr {
+  width: 100%;
+}
+
+.withAnotherlogin-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 8px;
+  border: none;
+  padding: 8px;
+  font-size: large;
+  width: 75%;
+  background-color: white;
+  margin: 0 auto;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.withAnotherlogin-btn:hover {
+  background-color: #521992;
+  color: white;
+}
+
+.another-login-container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.icon-styles {
+  color: var(--blue);
+  font-size: 2rem;
+}
+
+.github-icon {
+  color: var(--blue) fon;
+}
+
+.darkModeLogin {
+  background-color: #190944;
+  color: var(--white);
+  transition: ease-in-out;
+  transition-duration: 500ms;
+}
+
+.lightModeLogin {
+  background: #eeeee1;
+}
+
+.resgiter-link {
+  color: rgb(214, 18, 214);
+  text-decoration: none;
+}
+
+.resgiter-link:hover {
+  text-decoration: underline;
+}
+
+.error-container p {
+  color: red;
+  margin: 10px 0px;
+}
+
+@media only screen and (max-width: 768px) {
+  .login-container {
+    width: 100%;
+  }
+  .login-form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .withAnotherlogin-btn {
+    gap: 0px;
+  }
+
+  input {
+    font-size: 18px;
+  }
 }

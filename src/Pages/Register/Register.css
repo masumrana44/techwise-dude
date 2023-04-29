@@ -1,0 +1,17 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 5%;
+  /* gap: 5%; */
+}
+
+.register-from {
+  width: 500px;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 50px 50px 25px 50px;
+  box-sizing: border-box;
+}

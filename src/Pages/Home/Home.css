@@ -151,6 +151,7 @@ nav a:hover {
   background-color: #fe6c45;
   color:white;
   font-weight: bold;
+  cursor: pointer;
    
 }
 

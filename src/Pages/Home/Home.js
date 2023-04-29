@@ -119,7 +119,7 @@ const Home = () => {
           ))}
         </div>
          }
-        <Link to='/courses'><button className="btn-view-courses">VIEW ALL COURSES</button></Link>
+        <Link to='/courses'><button  className="btn-view-courses" >VIEW ALL COURSES</button></Link>
       </section>
     </div>
   );
