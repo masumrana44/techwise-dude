@@ -66,6 +66,17 @@ nav a:hover {
   color: #fe6c45;
 }
 
+.log-btn{
+  padding:7px 19px;
+  background-color: #071c3c;
+  /* color:white !important; */
+}
+.log-btn a{
+  color:white !important;
+}
+.log-btn a:hover{
+  color:#fe6c45 !important;
+}
  
 
  

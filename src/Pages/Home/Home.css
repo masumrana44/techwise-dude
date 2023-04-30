@@ -159,3 +159,66 @@ nav a:hover {
   background-color: #2d323d;
   color:white;
 }
+
+.log-btn{
+  padding:7px 15px;
+  background-color: #0e1d35;
+}
+
+.home-second-section{
+  background-color: #454953;
+  margin:10% auto;
+  width: 90%;
+  height: 500px;
+  display: flex;
+  gap:5%;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.home-second-section h2{
+  text-align: center;
+  font-size:2rem;
+  color:white;
+   margin-top:10%;
+}
+
+.home-second-section-img {
+  width: 50%;
+  height: 100%;
+}
+.home-second-section-img img{
+  width: 100%;
+ 
+}
+
+.home-second-section-text{
+width: 50%;
+ height: 100%;
+
+}
+.impact-card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:10%;
+  color:white;
+  padding:20% 1%
+}
+
+.impact-card div h3{
+  font-size: 3rem;
+  
+}
+.impact-card div p{
+font-size: 1rem;
+font-weight: 600;
+}
+
+.middle-counter{
+  border:1px solid white;
+  padding:4% 5%;
+  border-top: none;
+  border-bottom: none;
+}

@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -23,17 +25,23 @@ import { useState } from "react";
 import { useEffect } from "react";
 import CoursesCard from "../Courses/CoursesCard";
 import { ShareContext } from "../../Contexts/Context";
+import { toast } from "react-hot-toast";
+import CountUpComp from "react-countup";
 
 const Home = () => {
   const sliderImgs = [img1, img2, img3, img4, img5, img6, img7, img8, img9];
   const [couses, setCourses] = useState([]);
-  const {loading,setLoading}=useContext(ShareContext);
+  const [counterOn, setCounter] = useState(false);
+  const { loading, setLoading, user, Logouting } = useContext(ShareContext);
+  const handleLogouting = () => {
+    return Logouting().then(() => toast.success("Logout Successfully done"));
+  };
   useEffect(() => {
     fetch(`http://localhost:5000/courses/?limit=3`)
       .then((res) => res.json())
       .then((data) => {
-        setCourses(data)
-        if(data){
+        setCourses(data);
+        if (data) {
           setLoading(false);
         }
       });
@@ -67,10 +75,19 @@ const Home = () => {
                 </h1>
               </div>
               <nav>
-                <Link to="#">Home</Link>
                 <a href="#courses">Courses</a>
                 <Link to="#">Support</Link>
                 <Link to="#">Blog</Link>
+                {user?.email ? (
+                  <button className="log-btn" onClick={handleLogouting}>
+                    <Link to="">LogOut</Link>
+                  </button>
+                ) : (
+                  <button className="log-btn">
+                    {" "}
+                    <Link to="/login">Login</Link>
+                  </button>
+                )}
               </nav>
             </div>
             <div className="content">
@@ -112,14 +129,60 @@ const Home = () => {
           mindset and developing positive habits that support your goals. Let's
           change your life{" "}
         </p>
-         {
-          loading?<div className="spinner"></div>:  <div className="home-courses">
-          {couses.map((cous) => (
-            <CoursesCard key={cous?._id} card={cous}></CoursesCard>
-          ))}
+        {loading ? (
+          <div className="spinner"></div>
+        ) : (
+          <div className="home-courses">
+            {couses.map((cous) => (
+              <CoursesCard key={cous?._id} card={cous}></CoursesCard>
+            ))}
+          </div>
+        )}
+        <Link to="/courses">
+          <button className="btn-view-courses">VIEW ALL COURSES</button>
+        </Link>
+      </section>
+
+      <section className="home-second-section">
+        <div className="home-second-section-img">
+          <img src={img8} alt="" />
         </div>
-         }
-        <Link to='/courses'><button  className="btn-view-courses" >VIEW ALL COURSES</button></Link>
+        <div className="home-second-section-text">
+          
+          <ScrollTrigger
+            onEnter={() => setCounter(true)}
+            onExit={() => setCounter(false)}
+          >
+            <div className="impact-card">
+              <div>
+                <h3>
+                  {counterOn && (
+                    <CountUp start={500} end={4000} duration={2.5} />
+                  )}
+                  +
+                </h3>
+                <p>Job placement worldwide</p>
+              </div>
+
+              <div className="middle-counter">
+                <h3>
+                  {counterOn && (
+                    <CountUp start={300} end={1000} duration={2.5} />
+                  )}
+                  +
+                </h3>
+                <p> Connected companies</p>
+              </div>
+              <div>
+                <h3>
+                  {counterOn && <CountUp start={17} end={100} duration={2.5} />}
+                  +
+                </h3>
+                <p>Dedicated Job Placement Executives</p>
+              </div>
+            </div>
+          </ScrollTrigger>
+        </div>
       </section>
     </div>
   );
