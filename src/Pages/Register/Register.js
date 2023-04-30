@@ -1,12 +1,62 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Register.css";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { Link } from "react-router-dom";
+import { ShareContext } from "../../Contexts/Context";
+import { useState } from "react";
+import Modal from "../../Shared/Modal/Modal";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
+  const { createUser, updateName, isOpen, setIsOpen } =
+    useContext(ShareContext);
+  const [error, setError] = useState(null);
+
+  const handleCreateUser = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const conPassword = form.ConPassword.value;
+    // console.log(name,email,password,conPassword)
+    if (password !== conPassword) {
+      return toast.error("Your Password did not match");
+    }
+
+    if (!/(?=.*[0-9])/.test(conPassword)) {
+      return toast.error("Password should be at least one number character");
+    }
+    if (!/(?=.*?[A-Z])/.test(conPassword) && /(?=.*?[a-z])/.test(conPassword)) {
+      return setError(
+        "Please. Password should be at least one Uppercase and one LowerCase"
+      );
+    }
+    if (!/(?=.*?[#?!@$%^&*-])/.test(conPassword)) {
+      return toast.error("Password should be at least one Special Character");
+    }
+    if (!/.{6,}/.test(conPassword)) {
+      return toast.error("Password should be at least 6 character");
+    }
+
+    createUser(email, conPassword)
+      .then((result) => {
+        updateName(name)
+          .then(() => {})
+          .catch((err) => console.error(err));
+
+        setIsOpen(true);
+        form.reset();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <div className="register-container">
-        {/* register form animation ban er  */}
+      {isOpen && <Modal />}
+      {/* register form animation ban er  */}
       <div className="login-from-animation">
         <Player
           autoplay
@@ -21,7 +71,7 @@ const Register = () => {
         </Player>
       </div>
 
-      <form className="register-from">
+      <form onSubmit={handleCreateUser} className="register-from">
         <h2 className="text-center">Register</h2>
         <label htmlFor="name">
           Name
@@ -63,8 +113,8 @@ const Register = () => {
             required
           />
         </label>
-        <div className="error-container"> 
-          {/* <p>{error}</p> */}
+        <div className="error-container">
+          <p>{error}</p>
         </div>
         <button type="submit" className="btn-sigin">
           Register
@@ -79,9 +129,9 @@ const Register = () => {
           {" "}
           Already haven an Account.Please{" "}
           <Link to="/login" className="resgiter-link">
-          login
+            login
           </Link>
-          .
+          
         </p>
       </form>
     </div>
