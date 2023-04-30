@@ -9,6 +9,7 @@ import {
   GithubAuthProvider,
   updateProfile,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import { useEffect } from "react";
 
@@ -52,6 +53,12 @@ const Context = ({ children }) => {
     return signInWithPopup(auth, githubProvider);
   };
 
+
+  // Logouting 
+  const Logouting=()=>{
+    return signOut(auth)
+  }
+
   useEffect(() => {
     const unsubcrebe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -71,6 +78,7 @@ const Context = ({ children }) => {
     loginWithEP,
     loginWithG,
     LoginWithGit,
+    Logouting,
   };
   return (
     <div>

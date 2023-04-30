@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import { FaGithubSquare, FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
@@ -9,7 +9,9 @@ import { toast } from "react-hot-toast";
 
 const Login = () => {
   const { loginWithEP, loginWithG } = useContext(ShareContext);
-  const navigate = useNavigate();
+  let navigate = useNavigate();
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/home";
 
   const handleGoogleLogin = (event) => {
     event.preventDefault();
@@ -31,7 +33,7 @@ const Login = () => {
       .then((res) => {
         form.reset();
         toast.success("Login Successfully Done");
-        navigate("/home");
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         toast.error(err.message);
